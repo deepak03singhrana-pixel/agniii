@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* --- RICH DESTINATION DATA (UTTARAKHAND EDITION) --- */
 const destinationsData = {
-    "Sari Village": {
-        photos: [
-            "https://images.unsplash.com/photo-1537996194471-e657df975ab4", // Greenery (Bali repurposed)
-            "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2",
-            "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1"
-        ],
+   "Sari Village": {
+        photos: ["images/sari1.jpg", "images/sari2.jpg", "images/sari3.jpg", "images/sari4.jpg", "images/sari5.jpg", "images/sari6.jpg", "images/sari7.jpg", "images/sari8.jpg", "images/sari9.jpg"],
+        description: "Sari is a scenic hamlet in the Rudraprayag district, known as the base camp for the Deoriatal Lake trek.",
+        travel: { flight: "Jolly Grant (Dehradun)", train: "Rishikesh", car: "Cab from Rishikesh (6-7 hrs)." },
+        reviews: [{ user: "Amit V.", stars: 5, text: "Peaceful village." }]
+    },
         description: "Sari is a scenic hamlet in the Rudraprayag district, known as the base camp for the Deoriatal Lake trek. Surrounded by oak and rhododendron forests.",
         travel: { flight: "Jolly Grant Airport (Dehradun)", train: "Rishikesh/Haridwar", car: "Cab from Rishikesh (6-7 hrs)." },
         reviews: [{ user: "Amit V.", stars: 5, text: "Peaceful village with amazing hospitality." }, { user: "Riya S.", stars: 4, text: "Simple homestays, great food." }]
@@ -522,3 +522,4 @@ window.clearAllBookings = function() {
     viewBookings();
 
 };
+
