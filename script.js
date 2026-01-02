@@ -34,10 +34,10 @@ const destinationsData = {
         reviews: [{ user: "Rahul K.", stars: 5, text: "Camping here is a must!" }]
     },
     "Tungnath Temple": {
-        photos: ["https://images.unsplash.com/photo-1483729558449-99ef09a8c325", "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed92"],
-        description: "The highest Shiva temple in the world, located at an altitude of 3,680m. It is one of the Panch Kedars and offers spiritual solace.",
+        photos: ["images/tungnath1.jpg", "images/tungnath2.jpg", "images/tungnath3.jpg", "images/tungnath4.jpg", "images/tungnath5.jpg", "images/tungnath6.jpg", "images/tungnath7.jpg", "images/tungnath8.jpg", "images/tungnath9.jpg"],
+        description: "The highest Shiva temple in the world (3,680m).",
         travel: { flight: "Dehradun", train: "Haridwar", car: "Trek 4km from Chopta." },
-        reviews: [{ user: "Shivani", stars: 5, text: "Divine energy and tough trek." }]
+        reviews: [{ user: "Shivani", stars: 5, text: "Divine energy." }]
     },
     "Chandrashila Peak": {
         photos: ["https://images.unsplash.com/photo-1476610182048-b716b8518aae", "https://images.unsplash.com/photo-1516637090014-cb1ab780165e"],
@@ -520,4 +520,5 @@ window.clearAllBookings = function() {
     if(!confirm("WARNING: Delete ALL bookings?")) return;
     localStorage.removeItem('agniii_bookings');
     viewBookings();
+
 };
