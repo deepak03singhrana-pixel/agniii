@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AGNIII</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="login-page">
+
+    <nav class="login-nav" style="display:flex; justify-content:space-between; align-items:center;">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <button id="theme-toggle" class="theme-toggle" style="background:rgba(255,255,255,0.2); border-color:white; color:white;">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-card">
+            <h2>Welcome Back!</h2>
+            <p>Plan your next adventure.</p>
+
+            <form>
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <div class="form-actions">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" class="forgot-pass">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn-full">Login</button>
+            </form>
+
+            <div class="login-footer">
+                <p>Don't have an account? <a href="#">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault(); // Stop page refresh
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simple check (In a real app, this would be on a server)
+            if(email === 'admin@agniii.com' && password === 'admin123') {
+                localStorage.setItem('isAdmin', 'true'); // Save login state
+                alert('Welcome back, Admin!');
+                window.location.href = 'index.html'; // Go to home
+            } else {
+                alert('Invalid Login! Try: admin@agniii.com / admin123');
+            }
+        });
+    </script>
+</body>
+</html>

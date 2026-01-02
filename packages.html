@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trek Packages - AGNIII</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><span class="logo-text">AGNIII</span> <span class="plane-icon">🏔️</span></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="index.html">Home</a></li> 
+                <li><a href="packages.html" class="active-link">Packages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" style="height: 50vh;">
+        <div class="hero-bg" id="bg-1"></div>
+        <div class="hero-content">
+            <h1>Himalayan Packages</h1>
+            <p>Curated trekking experiences for you.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="destinations">
+            <div class="grid-container" id="grid-packages">
+                <div class="card package-card">
+                    <div class="badge">Best Seller</div>
+                    <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6" alt="Chopta" loading="lazy">
+                    <div class="card-info">
+                        <h3>Chopta Camping</h3>
+                        <p>3 Days, 2 Nights</p>
+                        <ul class="package-features">
+                            <li><i class="fas fa-fire"></i> Bonfire & Music</li>
+                            <li><i class="fas fa-campground"></i> Swiss Tents</li>
+                            <li><i class="fas fa-utensils"></i> All Meals</li>
+                        </ul>
+                        <div class="price">₹5,500 <small>per person</small></div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Package</a>
+                            <button class="map-btn" onclick="openDetails('Chopta Camping')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card package-card">
+                    <img src="https://images.unsplash.com/photo-1533692328991-0815989768f2" alt="Tungnath" loading="lazy">
+                    <div class="card-info">
+                        <h3>Tungnath Trek</h3>
+                        <p>4 Days, 3 Nights</p>
+                        <ul class="package-features">
+                            <li><i class="fas fa-hiking"></i> Guided Trek</li>
+                            <li><i class="fas fa-mountain"></i> Summit View</li>
+                            <li><i class="fas fa-camera"></i> Photography</li>
+                        </ul>
+                        <div class="price">₹7,200 <small>per person</small></div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Package</a>
+                            <button class="map-btn" onclick="openDetails('Tungnath Temple')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card package-card">
+                    <div class="badge" style="background: #ff9f43;">Spiritual</div>
+                    <img src="https://images.unsplash.com/photo-1505881402582-c5bc11054f91" alt="Kedarnath" loading="lazy">
+                    <div class="card-info">
+                        <h3>Panch Kedar Trek</h3>
+                        <p>10 Days, 9 Nights</p>
+                        <ul class="package-features">
+                            <li><i class="fas fa-shuttle-van"></i> Transport Inc.</li>
+                            <li><i class="fas fa-bed"></i> Hotel Stays</li>
+                            <li><i class="fas fa-praying-hands"></i> Temple Visits</li>
+                        </ul>
+                        <div class="price">₹25,000 <small>per person</small></div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Package</a>
+                            <button class="map-btn" onclick="openDetails('Panch Kedar Trek')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="destination-modal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close-btn">×</span>
+            <h2 id="modal-title">Name</h2>
+            <div class="slide-container"><img id="modal-main-img" src=""></div>
+            <div class="thumbnail-container" id="modal-thumbnails"></div>
+            <div class="modal-body">
+                <div class="modal-info">
+                    <p id="modal-desc"></p>
+                    <div class="travel-modes"><span id="mode-flight"></span><span id="mode-train"></span><span id="mode-car"></span></div>
+                    <div id="modal-reviews"></div>
+                </div>
+                <div class="modal-map"><iframe id="gmap-frame"></iframe></div>
+            </div>
+        </div>
+    </div>
+    <div id="gallery-modal" class="modal">
+         <div class="modal-content large-modal">
+            <span class="close-btn">×</span>
+            <h2 id="gallery-title">Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-main-wrapper"><img id="gallery-main-img" src=""></div>
+                <div class="gallery-thumbnails" id="gallery-thumbnails"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

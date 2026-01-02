@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGNIII Travel - Uttarakhand Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><span class="logo-text">AGNIII</span> <span class="plane-icon">🏔️</span></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="index.html" class="active-link">Home</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="admin-panel">
+        <label class="admin-label">
+            <input type="checkbox" id="edit-mode-toggle"> 
+            <span>🛠️ Edit Mode</span>
+        </label>
+        <button onclick="addNewCard()" class="admin-btn btn-add">➕ Add Card</button>
+        <button onclick="saveChanges()" class="admin-btn btn-save">💾 Save Layout</button>
+        <button onclick="viewBookings()" class="admin-btn btn-view" style="background: #6f42c1;">📅 View Bookings</button>
+        <button onclick="clearChanges()" class="admin-btn btn-reset">❌ Reset</button>
+    </div>
+
+    <section class="hero">
+        <div class="hero-bg" id="bg-1"></div>
+        <div class="hero-bg" id="bg-2"></div>
+
+        <div class="hero-content">
+            <h1>Discover Uttarakhand</h1>
+            <p>Sari, Chopta, Tungnath and beyond.</p>
+            <form class="search-box" id="search-form">
+                <input type="text" id="search-input" placeholder="Search treks (e.g. Sari, Chopta)..." autocomplete="off">
+                <button type="submit">Search</button>
+                <div id="search-dropdown" class="search-dropdown"></div>
+            </form>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <div id="search-feedback" class="search-status"></div>
+
+        <section class="destinations">
+            <h2>🔥 Popular Treks</h2>
+            <p class="section-subtitle">Experience the magic of the Garhwal Himalayas.</p>
+            <div class="grid-container" id="grid-trending">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4" alt="Sari Village" loading="lazy">
+                    <div class="card-info">
+                        <span class="tag">Base Camp</span>
+                        <h3>Sari Village</h3>
+                        <p>Gateway to Deoriatal. Peaceful stays.</p>
+                        <div class="price">₹1,500 / night</div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Now</a>
+                            <button class="map-btn" onclick="openDetails('Sari Village')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e" alt="Chopta" loading="lazy">
+                    <div class="card-info">
+                        <span class="tag">Scenic</span>
+                        <h3>Chopta Valley</h3>
+                        <p>Mini Switzerland of India.</p>
+                        <div class="price">₹2,500 / night</div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Now</a>
+                            <button class="map-btn" onclick="openDetails('Chopta Valley')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1613395877344-13d4c79e4df1" alt="Tungnath" loading="lazy">
+                    <div class="card-info">
+                        <span class="tag">Spiritual</span>
+                        <h3>Tungnath Temple</h3>
+                        <p>World's highest Shiva temple.</p>
+                        <div class="price">₹1,200 / person</div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Now</a>
+                            <button class="map-btn" onclick="openDetails('Tungnath Temple')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                 <div class="card">
+                    <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae" alt="Chandrashila" loading="lazy">
+                    <div class="card-info">
+                        <span class="tag">Adventure</span>
+                        <h3>Chandrashila Peak</h3>
+                        <p>Summit views of Nanda Devi.</p>
+                        <div class="price">₹2,000 / person</div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Now</a>
+                            <button class="map-btn" onclick="openDetails('Chandrashila Peak')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="destinations city-section">
+            <h2>🏔️ More Destinations</h2>
+            <p class="section-subtitle">Explore more of Devbhoomi.</p>
+            <div class="grid-container" id="grid-city">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea904ac22ac" alt="Deoriatal" loading="lazy">
+                    <div class="card-info">
+                        <span class="tag">Lake</span>
+                        <h3>Deoriatal Lake</h3>
+                        <p>Camping by the emerald lake.</p>
+                        <div class="price">₹1,800 / tent</div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Now</a>
+                            <button class="map-btn" onclick="openDetails('Deoriatal Lake')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9" alt="Auli" loading="lazy">
+                    <div class="card-info">
+                        <span class="tag">Snow</span>
+                        <h3>Auli Ski Resort</h3>
+                        <p>Skiing and cable cars.</p>
+                        <div class="price">₹3,500 / night</div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Now</a>
+                            <button class="map-btn" onclick="openDetails('Auli Ski Resort')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf" alt="Valley of Flowers" loading="lazy">
+                    <div class="card-info">
+                        <span class="tag">Nature</span>
+                        <h3>Valley of Flowers</h3>
+                        <p>UNESCO World Heritage Site.</p>
+                        <div class="price">₹2,200 / trip</div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Now</a>
+                            <button class="map-btn" onclick="openDetails('Valley of Flowers')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Rishikesh" loading="lazy">
+                    <div class="card-info">
+                        <span class="tag">Yoga</span>
+                        <h3>Rishikesh</h3>
+                        <p>Rafting and Spirituality.</p>
+                        <div class="price">₹1,000 / night</div>
+                        <div class="card-actions">
+                            <a href="booking.html" class="book-btn">Book Now</a>
+                            <button class="map-btn" onclick="openDetails('Rishikesh')" title="View Details"><i class="fas fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="no-results" style="display: none; text-align: center; padding: 40px;">
+            <h3>😕 No destinations found.</h3>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AGNIII Travel</h3>
+                <p>Specializing in Uttarakhand Treks.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Sari Village, Rudraprayag</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> booking@agniii.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 AGNIII Travel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="destination-modal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close-btn">×</span>
+            <h2 id="modal-title">Destination Name</h2>
+            <div class="slide-container">
+                <img id="modal-main-img" src="" alt="Main View">
+            </div>
+            <div class="thumbnail-container" id="modal-thumbnails"></div>
+            <div class="modal-body">
+                <div class="modal-info">
+                    <h3><i class="fas fa-info-circle"></i> About</h3>
+                    <p id="modal-desc">Description...</p>
+                    <h3><i class="fas fa-plane"></i> How to Reach</h3>
+                    <div class="travel-modes">
+                        <div class="mode"><i class="fas fa-plane"></i> <span id="mode-flight"></span></div>
+                        <div class="mode"><i class="fas fa-train"></i> <span id="mode-train"></span></div>
+                        <div class="mode"><i class="fas fa-car"></i> <span id="mode-car"></span></div>
+                    </div>
+                    <h3><i class="fas fa-star"></i> Reviews</h3>
+                    <div id="modal-reviews" class="reviews-list"></div>
+                </div>
+                <div class="modal-map">
+                    <h3><i class="fas fa-map-marked-alt"></i> Location</h3>
+                    <iframe id="gmap-frame" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="booking.html" class="book-btn">Book This Trip Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close-btn">×</span>
+            <h2 id="gallery-title">Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-main-wrapper">
+                    <button class="gallery-nav prev" onclick="changeGallerySlide(-1)">❮</button>
+                    <img id="gallery-main-img" src="" alt="Gallery Image">
+                    <button class="gallery-nav next" onclick="changeGallerySlide(1)">❯</button>
+                </div>
+                <div class="gallery-thumbnails" id="gallery-thumbnails"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Trek - AGNIII</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="login-page">
+
+    <nav class="login-nav" style="display:flex; justify-content:space-between; align-items:center;">
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-card" style="max-width: 500px;">
+            <h2>Start Your Adventure</h2>
+            <p>Book your trek to the Himalayas.</p>
+
+            <form id="booking-form" onsubmit="handleBooking(event)">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="b-name" placeholder="Rahul Sharma" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="b-email" placeholder="rahul@example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Select Trek / Destination</label>
+                    <select id="b-dest" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
+                        <option value="default">Select a Destination</option>
+                        <option value="Sari Village">Sari Village (Deoriatal)</option>
+                        <option value="Chopta Valley">Chopta Valley</option>
+                        <option value="Tungnath Temple">Tungnath Temple</option>
+                        <option value="Chandrashila Peak">Chandrashila Peak</option>
+                        <option value="Auli">Auli Ski Resort</option>
+                        <option value="Valley of Flowers">Valley of Flowers</option>
+                        <option value="Rishikesh">Rishikesh</option>
+                        <option value="Panch Kedar">Panch Kedar Package</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Travel Date</label>
+                    <input type="date" id="b-date" required>
+                </div>
+
+                <button type="submit" class="btn-full">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
